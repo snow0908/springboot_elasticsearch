@@ -9,7 +9,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&nullCatalogMeansCurrent=true&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
   elasticsearch:
     rest:
@@ -18,13 +18,14 @@ spring:
 
   static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
 
-mybatis:
-  mapper-locations: classpath:mapping/*Mapping.xml
+mybatis-plus:
+  mapper-locations: classpath:mapping/**/*Mapping.xml
   type-aliases-package: com.snow.learn.entity
 
 #showSql
 logging:
   level:
     com:
-      example:
-        mapper : debug
+      snow:
+        learn:
+          mapper: debug
